@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class Login extends Component {
-  render() {
+  render () {
     return (
       <div>
         <h1>Login</h1>
@@ -9,4 +9,3 @@ export default class Login extends Component {
     )
   }
 }
-

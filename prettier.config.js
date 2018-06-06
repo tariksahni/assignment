@@ -1,5 +1,6 @@
 const rules = {
-  singleQuote: true
+  singleQuote: true,
+  semi: false
 }
 
 module.exports = rules

@@ -1,18 +1,18 @@
-import { GET_APP_DETAILS } from '../Constants';
+import { GET_APP_DETAILS } from '../Constants'
 
-export function getAppDetails() {
+export function getAppDetails () {
   return dispatch => {
-    dispatch({ type: `${GET_APP_DETAILS}_PENDING` });
+    dispatch({ type: `${GET_APP_DETAILS}_PENDING` })
     apiCallDemo().then(response => {
-      dispatch({ type: `${GET_APP_DETAILS}_FULFILLED` });
-    });
-  };
+      dispatch({ type: `${GET_APP_DETAILS}_FULFILLED` })
+    })
+  }
 }
 
 const apiCallDemo = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(true);
-    }, 2000);
-  });
-};
+      resolve(true)
+    }, 2000)
+  })
+}
