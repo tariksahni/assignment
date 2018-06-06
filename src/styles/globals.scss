@@ -1,0 +1,9 @@
+@import 'variables';
+
+body {
+  margin: 0 auto;
+  color: $black;
+  font-family: $font-family;
+  font-size: $base-size;
+  width: 100vw;
+}
