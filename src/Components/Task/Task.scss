@@ -1,0 +1,134 @@
+@import 'styles/variables';
+
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  margin-top: 20px;
+  position: relative;
+  padding: 10px;
+  box-shadow: 5px 5px 10px 0px $light-background;
+
+  .taskItemName {
+    background-color: $white;
+    color: black;
+    width: 100%;
+
+    .taskItemNameText {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      .taskNameLabel {
+        font-size: 26px;
+      }
+      .authorContainer {
+        display: flex;
+        align-items: baseline;
+        margin-top: 15px;
+        text-align: left;
+
+        .createdByLabel {
+          font-size: 15px;
+        }
+
+        .createdByName {
+          font-size: 20px;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  .deleteButton {
+    position: absolute;
+    background: $red;
+    background-image: linear-gradient(to bottom, $red, $dark-red);
+    font-size: 13px;
+    color: $white;
+    text-align: center;
+    padding: 5px;
+    border: 0px;
+    border-radius: 15%;
+    margin: 3px;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+  }
+
+  .deleteButton:hover {
+    background: $bright-red;
+    background-image: linear-gradient(to bottom, $bright-red, $bright-dark-red);
+    padding: 5px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 15%;
+    margin: 3px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .taskItemBody {
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+
+    .assignButtonContainer {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      padding: 0px;
+
+      .assignButton {
+        background: #036564;
+        background-image: -webkit-linear-gradient(top, #036564, #033649);
+        background-image: -moz-linear-gradient(top, #036564, #033649);
+        background-image: -ms-linear-gradient(top, #036564, #033649);
+        background-image: -o-linear-gradient(top, #036564, #033649);
+        background-image: linear-gradient(to bottom, #036564, #033649);
+        font-size: 0.75em;
+        color: #ffffff;
+        text-align: center;
+        padding: 5px;
+        font-weight: 700;
+        border: 0px;
+        border-radius: 5%;
+        margin: 5px;
+      }
+
+      .assignButton:hover {
+        background: lighten(#036564, 10%);
+        background-image: -webkit-linear-gradient(
+          top,
+          lighten(#036564, 10%),
+          lighten(#033649, 10%)
+        );
+        background-image: -moz-linear-gradient(
+          top,
+          lighten(#036564, 10%),
+          lighten(#033649, 10%)
+        );
+        background-image: -ms-linear-gradient(
+          top,
+          lighten(#036564, 10%),
+          lighten(#033649, 10%)
+        );
+        background-image: -o-linear-gradient(
+          top,
+          lighten(#036564, 10%),
+          lighten(#033649, 10%)
+        );
+        background-image: linear-gradient(
+          top,
+          lighten(#036564, 10%),
+          lighten(#033649, 10%)
+        );
+        padding: 5px;
+        font-weight: 700;
+        border: 0px;
+        border-radius: 5%;
+      }
+    }
+  }
+}

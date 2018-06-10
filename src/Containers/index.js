@@ -1,3 +1,3 @@
 import App from './App'
-
-export { App }
+import DashBoard from './DashBoard'
+export { App, DashBoard }

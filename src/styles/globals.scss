@@ -6,4 +6,11 @@ body {
   font-family: $font-family;
   font-size: $base-size;
   width: 100vw;
+  height: 100vh;
+  letter-spacing: 1px;
+}
+
+#app-root {
+  height: 100%;
+  width: 100%;
 }
