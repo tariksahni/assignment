@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { getFormatedDate } from '../../utils/dateFormatter'
+import pencilIcon from '../../Assets/Images/pencil.svg'
 import './Task.css'
 
 export default class Task extends Component {
   render () {
-    const { name, author, assigned, priority, description, status } = this.props
+    const {
+      name,
+      author,
+      assigned,
+      priority,
+      description,
+      status,
+      due_date
+    } = this.props
     return (
       <div className='taskItem'>
         <div className='taskItemName'>
@@ -16,6 +26,9 @@ export default class Task extends Component {
             </div>
           </div>
         </div>
+        <button onClick={this.deleteTask} className='editButton'>
+          <img alt='edit' src={pencilIcon} className='editImage' />
+        </button>
         <button onClick={this.deleteTask} className='deleteButton'> X </button>
         <div className='taskItemBody'>
           <div className='fieldContainer'>
@@ -26,6 +39,12 @@ export default class Task extends Component {
             <span className='fieldLabels'>Priority Level:&nbsp;</span>
             <span className='fieldValue'>
               {priority}
+            </span>
+          </div>
+          <div className='fieldContainer'>
+            <span className='fieldLabels'>Due Date:&nbsp;</span>
+            <span className='fieldValue'>
+              {getFormatedDate(due_date)}
             </span>
           </div>
           <span className='fieldContainerDescription'>
@@ -68,5 +87,6 @@ Task.propTypes = {
   assigned: PropTypes.string,
   priority: PropTypes.string,
   status: PropTypes.string,
+  due_date: PropTypes.obj,
   getTaskList: PropTypes.func
 }

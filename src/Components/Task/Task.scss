@@ -3,8 +3,7 @@
 .taskItem {
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
-  //   background-color: #000;
+  background-color: $off-white;
   margin-top: 20px;
   position: relative;
   padding: 10px;
@@ -34,6 +33,7 @@
         }
 
         .createdByName {
+          margin-top: 5px;
           font-size: 20px;
           font-weight: 100;
         }
@@ -44,7 +44,7 @@
   .deleteButton {
     position: absolute;
     background: $red;
-    background-image: linear-gradient(to bottom, $red, $dark-red);
+    background-image: linear-gradient($red, $dark-red);
     font-size: 13px;
     color: $white;
     text-align: center;
@@ -59,7 +59,7 @@
 
   .deleteButton:hover {
     background: $bright-red;
-    background-image: linear-gradient(to bottom, $bright-red, $bright-dark-red);
+    background-image: linear-gradient($bright-red, $bright-dark-red);
     padding: 5px;
     font-weight: 700;
     border: 0px;
@@ -70,6 +70,34 @@
     right: 15px;
   }
 
+  .editButton {
+    position: absolute;
+    background-color: $off-white;
+    font-size: 13px;
+    color: $white;
+    text-align: center;
+    padding: 5px;
+    border: 0px;
+    border-radius: 15%;
+    margin: 3px;
+    top: 13px;
+    right: 55px;
+    width: 25px;
+  }
+  .editImage {
+    width: 20px;
+    height: 20px;
+  }
+  .editButton:hover {
+    padding: 5px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 15%;
+    margin: 3px;
+    position: absolute;
+    top: 13px;
+    right: 55px;
+  }
   .taskItemBody {
     display: flex;
     flex-direction: column;
@@ -109,8 +137,8 @@
       margin-top: 20px;
 
       .assignButton {
-        background: $blue-green;
-        background-image: linear-gradient(to bottom, $blue-green, #033649);
+        background: $dark-green;
+        background-image: linear-gradient($dark-green, #033649);
         font-size: 12px;
         color: $white;
         text-align: center;
@@ -124,7 +152,6 @@
       .assignButton:hover {
         background: lighten($blue-green, 10%);
         background-image: linear-gradient(
-          top,
           lighten($blue-green, 10%),
           lighten($dark-blue-green, 10%)
         );

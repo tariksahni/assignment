@@ -6,25 +6,26 @@
     "animate.css": "^3.5.2",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "lodash": "^4.17.4",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
+    "react-widgets": "^4.3.2",
+    "react-widgets-moment": "^4.0.15",
     "redux": "^3.7.2",
+    "redux-form": "^7.4.0",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
-    "eslint-report":
-      "eslint ./src -f node_modules/eslint-html-reporter/reporter.js -o eslint-report.html",
+    "eslint-report": "eslint ./src -f node_modules/eslint-html-reporter/reporter.js -o eslint-report.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

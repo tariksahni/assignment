@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { List } from '../'
 import './DashBoard.css'
 
@@ -20,7 +21,12 @@ export default class DashBoard extends Component {
     return (
       <div className='dashBoardContainer'>
         <div className='mainTitleContainer'>
-          <h1 className='dashboardheading'>Successo</h1>
+          <div className='dashboardheadingContainer'>
+            <h1 className='dashboardheading' onClick={this.handleAddButton}>
+              Successo
+            </h1>
+          </div>
+          <Link to='/new-task' className='addNewForm'>Add New Task</Link>
         </div>
         <div className='listContainer'>
           <List data={todo} listHeading={'To Do Tasks'} type={'todo'} />

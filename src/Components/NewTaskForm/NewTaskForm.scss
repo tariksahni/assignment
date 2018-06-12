@@ -1,1 +1,219 @@
 @import 'styles/variables';
+
+.newTaskConatiner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $blue;
+    font-size: 30px;
+    font-weight: 300;
+    margin: 10px 0;
+  }
+
+  .newFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    margin-bottom: 1%;
+    overflow: auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .mainFieldContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 15px 5px;
+
+      .inputFeildContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        max-width: 500px;
+        position: relative;
+
+        input {
+          font-size: 16px;
+        }
+        .errorField {
+          border: none;
+          font-size: 15px;
+          font-weight: 400;
+          color: $red;
+          margin: 5px;
+        }
+      }
+
+      .labelFeild {
+        font-size: 18px;
+        margin: 5px 0;
+        font-weight: 500;
+        min-width: 150px;
+      }
+
+      .inputField {
+        padding: 7px;
+      }
+
+      .mainContainer {
+        display: flex;
+        margin-top: 10px;
+
+        .container {
+          display: flex;
+          position: relative;
+          padding-left: 35px;
+          cursor: pointer;
+          font-size: 20px;
+          font-weight: 100;
+          color: grey;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 25px;
+          width: 25px;
+          background-color: #eee;
+        }
+
+        .container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+
+        .container input:checked ~ .checkmark {
+          background-color: blue;
+        }
+
+        .checkmark:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
+
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        .container .checkmark:after {
+          left: 9px;
+          top: 5px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    .cancelSaveButton {
+      display: flex;
+      justify-content: center;
+
+      button.button {
+        margin: 10px;
+
+        &[type='button'] {
+          white-space: nowrap;
+          display: inline-block;
+          border-radius: 5px;
+          padding: 10px 15px;
+          font-size: 20px;
+          color: $white;
+          background-image: linear-gradient($white, $light-grey);
+          border: 1px solid $light-grey;
+          color: $black;
+
+          &:visited {
+            color: $white;
+          }
+
+          &:hover {
+            background-image: linear-gradient($white, #eee);
+
+            &[disabled] {
+              background-image: linear-gradient($white, $light-grey);
+            }
+          }
+
+          &:visited {
+            color: $black;
+          }
+
+          &[disabled] {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+
+        &[type='submit'] {
+          white-space: nowrap;
+          display: inline-block;
+          border-radius: 5px;
+          font-size: 20px;
+          padding: 10px 15px;
+          color: $white;
+          background-image: linear-gradient(#4f93ce, #285f8f);
+          border: 1px solid #285f8f;
+
+          &:visited {
+            color: $white;
+          }
+
+          &:hover {
+            background-image: linear-gradient(#63a0d4, #337ab7);
+
+            &[disabled] {
+              background-image: linear-gradient(#4f93ce, #285f8f);
+            }
+          }
+
+          &:visited {
+            color: $black;
+          }
+
+          &[disabled] {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+
+          &.submitting {
+            cursor: wait !important;
+          }
+
+          &:before {
+            content: '✓';
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -6,19 +6,17 @@ import './List.css'
 export default class List extends Component {
   render () {
     const { listHeading, type } = this.props
-    var taskListNode = this.props.data.map(taskDataItem => {
+    var taskListNode = this.props.data.map(task => {
       return (
         <Task
-          key={1}
-          uniqueID={1}
-          name={'TARIK'}
-          author={'Tarik Sahni'}
-          description={
-            'Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task '
-          }
-          assigned={'Tarik Sahni'}
-          priority={'High'}
-          status={'todo'}
+          key={task.id}
+          name={task.name}
+          author={task.author}
+          due_date={task.due_date}
+          description={task.description}
+          assigned={task.assigned}
+          priority={task.priority}
+          status={task.status}
         />
       )
     })
