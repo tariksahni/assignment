@@ -9,6 +9,7 @@ import './NewTaskForm.css'
 import 'react-widgets/dist/css/react-widgets.css'
 
 momentLocalizer(moment)
+var id = 101
 
 const validate = values => {
   const errors = {}
@@ -29,8 +30,6 @@ const validate = values => {
   }
   if (!values.description) {
     errors.description = 'Required'
-  } else if (!/^[a-z0-9 ]+$/i.test(values.description)) {
-    errors.description = 'Must be AlphaNumeric'
   }
 
   return errors
@@ -112,11 +111,22 @@ const renderDropdownList = ({
 
 class NewTaskForm extends Component {
   handleFormSubmit = values => {
-    // console.log(values)
+    const payload = {
+      id: id,
+      author: values.author,
+      name: values.name,
+      description: values.description,
+      status: values.status.id,
+      priority: values.priority.id,
+      due_date: values.due_date,
+      assigned: values.assigned
+    }
     // const payload = {
     //   name: values.name,
     //   disabled: values.disabled
     // }
+    this.props.addTask(payload)
+    this.props.history.push('/')
   }
 
   handleBackClick = () => {
@@ -245,9 +255,7 @@ NewTaskForm.propTypes = {
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   submitting: PropTypes.bool,
-  updateClients: PropTypes.func,
-  resetClientsStatus: PropTypes.func,
-  clients: PropTypes.object
+  addTask: PropTypes.func
 }
 
 export default reduxForm({

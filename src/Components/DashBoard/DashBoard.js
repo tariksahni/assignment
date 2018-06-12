@@ -23,7 +23,7 @@ export default class DashBoard extends Component {
         <div className='mainTitleContainer'>
           <div className='dashboardheadingContainer'>
             <h1 className='dashboardheading' onClick={this.handleAddButton}>
-              Successo
+              My To Do List
             </h1>
           </div>
           <Link to='/new-task' className='addNewForm'>Add New Task</Link>

@@ -17,7 +17,7 @@ export const tasks = (state = INITIAL_STATE, action) => {
     case GET_TASKS_LIST:
       return state
     case ADD_TASK:
-      return state
+      return { ...state, todo: [...state.todo, action.payload] }
     case EDIT_TASK:
       return state
     case CHANGE_STATUS:

@@ -82,11 +82,10 @@ export default class Task extends Component {
 Task.propTypes = {
   name: PropTypes.string,
   author: PropTypes.string,
-  key: PropTypes.number,
   description: PropTypes.string,
   assigned: PropTypes.string,
   priority: PropTypes.string,
   status: PropTypes.string,
-  due_date: PropTypes.obj,
+  due_date: PropTypes.any,
   getTaskList: PropTypes.func
 }

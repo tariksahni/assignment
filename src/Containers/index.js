@@ -1,3 +1,5 @@
 import App from './App'
 import DashBoard from './DashBoard'
-export { App, DashBoard }
+import NewTaskForm from './NewTaskForm'
+
+export { App, DashBoard, NewTaskForm }

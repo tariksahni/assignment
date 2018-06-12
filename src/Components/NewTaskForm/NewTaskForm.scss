@@ -8,12 +8,13 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  background-color: $dark-green;
 
   .heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $blue;
+    color: $white;
     font-size: 30px;
     font-weight: 300;
     margin: 10px 0;

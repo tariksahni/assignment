@@ -22,26 +22,6 @@ import {
 //   })
 // }
 
-// // export const callsOffered = () => {
-// //   return dispatch => {
-// //     axios
-// //       .get(callsOfferedAPI)
-// //       .then(response => {
-// //         callsOfferedSuccess(dispatch, response.data)
-// //       })
-// //       .catch(err => {
-// //         return err
-// //       })
-// //   }
-// // }
-
-// // const callsOfferedSuccess = (dispatch, result) => {
-// //   dispatch({
-// //     type: GRAPH_INBOUND_CALLS_OFFERED,
-// //     payload: result
-// //   })
-// // }
-
 export const getTaskList = () => {
   return {
     type: GET_TASKS_LIST

@@ -10,6 +10,7 @@ export default class List extends Component {
       return (
         <Task
           key={task.id}
+          id={task.id}
           name={task.name}
           author={task.author}
           due_date={task.due_date}

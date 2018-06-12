@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { NewTaskForm } from '../Components'
-import { DashBoard } from '../Containers'
+import { DashBoard, NewTaskForm } from '../Containers'
 import './style.css'
 
 export default class Routes extends Component {
