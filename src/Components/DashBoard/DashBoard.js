@@ -23,9 +23,9 @@ export default class DashBoard extends Component {
           <h1 className='dashboardheading'>Successo</h1>
         </div>
         <div className='listContainer'>
-          <List data={todo} listHeading={'To Do Tasks'} />
-          <List data={doing} listHeading={'Doing Tasks'} />
-          <List data={done} listHeading={'Done Tasks'} />
+          <List data={todo} listHeading={'To Do Tasks'} type={'todo'} />
+          <List data={doing} listHeading={'Doing Tasks'} type={'doing'} />
+          <List data={done} listHeading={'Done Tasks'} type={'done'} />
         </div>
       </div>
     )

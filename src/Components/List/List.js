@@ -5,7 +5,7 @@ import './List.css'
 
 export default class List extends Component {
   render () {
-    const { listHeading } = this.props
+    const { listHeading, type } = this.props
     var taskListNode = this.props.data.map(taskDataItem => {
       return (
         <Task
@@ -13,15 +13,17 @@ export default class List extends Component {
           uniqueID={1}
           name={'TARIK'}
           author={'Tarik Sahni'}
-          description={'Do Task ABC'}
+          description={
+            'Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task ABC Do Task '
+          }
           assigned={'Tarik Sahni'}
           priority={'High'}
-          status={'to-do'}
+          status={'todo'}
         />
       )
     })
     return (
-      <div className='listElement'>
+      <div className={`listElement ${type}`}>
         <span className='listHeading'>{listHeading}</span>
         <div className='taskLists'>{taskListNode} </div>
       </div>
@@ -32,5 +34,6 @@ export default class List extends Component {
 List.propTypes = {
   data: PropTypes.array,
   listHeading: PropTypes.string,
-  getTaskList: PropTypes.func
+  getTaskList: PropTypes.func,
+  type: PropTypes.string
 }
