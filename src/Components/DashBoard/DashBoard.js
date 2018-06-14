@@ -12,8 +12,10 @@ export default class DashBoard extends Component {
     this.props.getTaskList()
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
-    // console.log(nextProps)
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      tasks: nextProps.tasks
+    })
   }
 
   render () {

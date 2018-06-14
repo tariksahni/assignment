@@ -5,6 +5,7 @@ import {
   CHANGE_STATUS
 } from '../Constants'
 import { todoTasks, doingTasks, doneTasks } from '../Constants/demoTasks'
+import { changeStatus, removeObject } from '../utils/dataConvertor'
 
 const INITIAL_STATE = {
   todo: todoTasks,
@@ -20,8 +21,17 @@ export const tasks = (state = INITIAL_STATE, action) => {
       return { ...state, todo: [...state.todo, action.payload] }
     case EDIT_TASK:
       return state
-    case CHANGE_STATUS:
-      return state
+    case CHANGE_STATUS: {
+      const newObject = changeStatus(action.payload)
+      return {
+        ...state,
+        [action.payload.status]: removeObject(action.payload),
+        [action.payload.newStatus]: [
+          ...state[action.payload.newStatus],
+          newObject
+        ]
+      }
+    }
     default:
       return state
   }

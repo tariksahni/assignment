@@ -10,7 +10,11 @@ export default class Routes extends Component {
         <div className='routeContainer'>
           <Route exact path='/' component={DashBoard} />
           <Route exact path='/new-task' component={NewTaskForm} />
-          <Route exact path='/task/:id/edit' component={NewTaskForm} />
+          <Route
+            exact
+            path='/task/id/:id/:status/edit'
+            component={NewTaskForm}
+          />
         </div>
       </Router>
     )

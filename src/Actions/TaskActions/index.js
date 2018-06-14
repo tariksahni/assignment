@@ -35,16 +35,16 @@ export const addTask = task => {
   }
 }
 
-export const changeTaskStatus = newStatus => {
+export const changeTaskStatus = data => {
   return {
     type: CHANGE_STATUS,
-    payload: newStatus
+    payload: data
   }
 }
 
-export const editTask = newTask => {
+export const getDataToEdit = data => {
   return {
     type: EDIT_TASK,
-    payload: newTask
+    payload: data
   }
 }

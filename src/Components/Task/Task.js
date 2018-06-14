@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import { getFormatedDate } from '../../utils/dateFormatter'
 import pencilIcon from '../../Assets/Images/pencil.svg'
 import './Task.css'
 
-export default class Task extends Component {
+class Task extends Component {
+  editTask = (id, status) => {
+    this.props.history.push(`/task/id/${id}/${status}/edit`)
+  }
+
+  changeStatus = newStatus => {
+    const { tasks, id, status } = this.props
+    this.props.changeTaskStatus({ newStatus, tasks, id, status })
+  }
+
   render () {
     const {
       name,
@@ -13,7 +23,8 @@ export default class Task extends Component {
       priority,
       description,
       status,
-      due_date
+      due_date,
+      id
     } = this.props
     return (
       <div className='taskItem'>
@@ -26,7 +37,10 @@ export default class Task extends Component {
             </div>
           </div>
         </div>
-        <button onClick={this.deleteTask} className='editButton'>
+        <button
+          onClick={() => this.editTask(id, status)}
+          className='editButton'
+        >
           <img alt='edit' src={pencilIcon} className='editImage' />
         </button>
         <button onClick={this.deleteTask} className='deleteButton'> X </button>
@@ -54,21 +68,21 @@ export default class Task extends Component {
             {status !== 'todo' &&
               <div
                 className='assignButton toDoButton'
-                onClick={this.toDoStatus}
+                onClick={() => this.changeStatus('todo')}
               >
                 TO DO
               </div>}
             {status !== 'doing' &&
               <div
                 className='assignButton doingButton'
-                onClick={this.doingStatus}
+                onClick={() => this.changeStatus('doing')}
               >
                 DOING
               </div>}
             {status !== 'done' &&
               <div
                 className='assignButton doneButton'
-                onClick={this.doneStatus}
+                onClick={() => this.changeStatus('done')}
               >
                 DONE
               </div>}
@@ -79,7 +93,10 @@ export default class Task extends Component {
   }
 }
 
+export default withRouter(Task)
+
 Task.propTypes = {
+  id: PropTypes.number,
   name: PropTypes.string,
   author: PropTypes.string,
   description: PropTypes.string,
@@ -87,5 +104,8 @@ Task.propTypes = {
   priority: PropTypes.string,
   status: PropTypes.string,
   due_date: PropTypes.any,
-  getTaskList: PropTypes.func
+  changeTaskStatus: PropTypes.func,
+  getDataToEdit: PropTypes.func,
+  history: PropTypes.object,
+  tasks: PropTypes.object
 }
