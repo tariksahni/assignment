@@ -10,6 +10,10 @@ class Task extends Component {
     this.props.history.push(`/task/id/${id}/${status}/edit`)
   }
 
+  deleteTask = (id, status) => {
+    this.props.deleteTask({ id, status })
+  }
+
   changeStatus = newStatus => {
     const { tasks, id, status } = this.props
     this.props.changeTaskStatus({ newStatus, tasks, id, status })
@@ -43,7 +47,12 @@ class Task extends Component {
         >
           <img alt='edit' src={pencilIcon} className='editImage' />
         </button>
-        <button onClick={this.deleteTask} className='deleteButton'> X </button>
+        <button
+          onClick={() => this.deleteTask(id, status)}
+          className='deleteButton'
+        >
+          {' '}X{' '}
+        </button>
         <div className='taskItemBody'>
           <div className='fieldContainer'>
             <span className='fieldLabels'>Assigned To:&nbsp;</span>
@@ -105,7 +114,7 @@ Task.propTypes = {
   status: PropTypes.string,
   due_date: PropTypes.any,
   changeTaskStatus: PropTypes.func,
-  getDataToEdit: PropTypes.func,
   history: PropTypes.object,
-  tasks: PropTypes.object
+  tasks: PropTypes.object,
+  deleteTask: PropTypes.func
 }

@@ -6,7 +6,7 @@ export const todoTasks = [
     description: 'Do some Task ABC',
     status: 'todo',
     priority: 'high',
-    due_date: null,
+    due_date: new Date(),
     assigned: 'Tarik Sahni'
   }
 ]
@@ -18,7 +18,7 @@ export const doingTasks = [
     name: 'TASK ABC',
     description: 'Do some Task DEF',
     status: 'doing',
-    due_date: null,
+    due_date: new Date(),
     priority: 'high',
     assigned: 'Tarik Sahni'
   }
@@ -31,7 +31,7 @@ export const doneTasks = [
     name: 'TASK ABC',
     description: 'Do some Task FGH',
     status: 'done',
-    due_date: null,
+    due_date: new Date(),
     priority: 'high',
     assigned: 'Tarik Sahni'
   }

@@ -16,3 +16,18 @@ export const removeObject = data => {
   })
   return copyData.tasks[copyData.status]
 }
+
+export const editObject = (editedData, data) => {
+  _.remove(data, {
+    id: editedData.id
+  })
+  data.push(editedData)
+  return data
+}
+
+export const deleteObject = (id, data) => {
+  _.remove(data, {
+    id: id
+  })
+  return data
+}

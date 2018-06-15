@@ -18,6 +18,7 @@
   .taskLists {
     display: flex;
     flex-direction: column;
+    overflow: auto;
   }
 }
 

@@ -2,25 +2,9 @@ import {
   GET_TASKS_LIST,
   ADD_TASK,
   EDIT_TASK,
+  DELETE_TASK,
   CHANGE_STATUS
 } from '../../Constants'
-
-// export function getAppDetails () {
-//   return dispatch => {
-//     dispatch({ type: `${GET_APP_DETAILS}_PENDING` })
-//     apiCallDemo().then(response => {
-//       dispatch({ type: `${GET_APP_DETAILS}_FULFILLED` })
-//     })
-//   }
-// }
-
-// const apiCallDemo = () => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       resolve(true)
-//     }, 2000)
-//   })
-// }
 
 export const getTaskList = () => {
   return {
@@ -42,9 +26,16 @@ export const changeTaskStatus = data => {
   }
 }
 
-export const getDataToEdit = data => {
+export const editTask = data => {
   return {
     type: EDIT_TASK,
+    payload: data
+  }
+}
+
+export const deleteTask = data => {
+  return {
+    type: DELETE_TASK,
     payload: data
   }
 }

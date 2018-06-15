@@ -10,6 +10,5 @@ export const CHANGE_STATUS = 'CHANGE_STATUS'
 // EDIT TASK
 export const EDIT_TASK = 'EDIT_TASK'
 
-// Actions
-export const GET_APP_DETAILS = 'GET_APP_DETAILS'
-export const SITE_NAME = 'TARIK SAHNI'
+//   DELETE TASK
+export const DELETE_TASK = 'DELETE_TASK'

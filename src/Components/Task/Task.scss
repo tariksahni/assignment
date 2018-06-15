@@ -1,7 +1,6 @@
 @import 'styles/variables';
 
 .taskItem {
-  display: flex;
   flex-direction: column;
   background-color: $off-white;
   margin-top: 20px;
@@ -42,6 +41,7 @@
   }
 
   .deleteButton {
+    cursor: pointer;
     position: absolute;
     background: $red;
     background-image: linear-gradient($red, $dark-red);
@@ -71,6 +71,7 @@
   }
 
   .editButton {
+    cursor: pointer;
     position: absolute;
     background-color: $off-white;
     font-size: 13px;
@@ -147,6 +148,7 @@
         border: 0px;
         border-radius: 5%;
         margin: 5px;
+        cursor: pointer;
       }
 
       .assignButton:hover {

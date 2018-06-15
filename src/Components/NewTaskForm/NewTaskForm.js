@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import { DateTimePicker, DropdownList } from 'react-widgets'
 import moment from 'moment'
 import momentLocalizer from 'react-widgets-moment'
-import { statusOptions, priorityOptions } from '../../Constants/NewTaskOptions'
+import { priorityOptions } from '../../Constants/NewTaskOptions'
 import './NewTaskForm.css'
 import 'react-widgets/dist/css/react-widgets.css'
 
@@ -31,7 +31,13 @@ const validate = values => {
   if (!values.description) {
     errors.description = 'Required'
   }
+  if (!values.due_date) {
+    errors.due_date = 'Required'
+  }
 
+  if (!values.priority) {
+    errors.priority = 'Required'
+  }
   return errors
 }
 
@@ -110,23 +116,37 @@ const renderDropdownList = ({
 }
 
 class NewTaskForm extends Component {
+  componentDidMount () {
+    this.props.initialize(this.props.initialValues)
+  }
   handleFormSubmit = values => {
-    const payload = {
-      id: id,
+    const formValues = {
       author: values.author,
       name: values.name,
       description: values.description,
-      status: values.status.id,
-      priority: values.priority.id,
-      due_date: values.due_date,
+      priority: values.priority ? values.priority.id : 'low',
+      due_date: values.due_date ? values.due_date : new Date(),
       assigned: values.assigned
     }
-    // const payload = {
-    //   name: values.name,
-    //   disabled: values.disabled
-    // }
-    this.props.addTask(payload)
-    this.props.history.push('/')
+    if (this.props.editMode) {
+      const payload = {
+        id: this.props.initialValues.id,
+        status: this.props.initialValues.status
+          ? this.props.initialValues.status.id
+          : 'todo',
+        ...formValues
+      }
+      this.props.editTask(payload)
+      this.props.history.push('/')
+    } else {
+      const payload = {
+        id: id++,
+        status: 'todo',
+        ...formValues
+      }
+      this.props.addTask(payload)
+      this.props.history.push('/')
+    }
   }
 
   handleBackClick = () => {
@@ -169,20 +189,12 @@ class NewTaskForm extends Component {
             component={renderDateTimePicker}
           />
           <Field
-            name='status'
-            type='text'
-            label='Status'
-            valueField='id'
-            textField='name'
-            data={statusOptions}
-            component={renderDropdownList}
-          />
-          <Field
             name='priority'
             type='text'
             label='Priority'
             valueField='id'
             textField='name'
+            defaultValue={this.props.initialValues.priority}
             data={priorityOptions}
             component={renderDropdownList}
           />
@@ -192,7 +204,6 @@ class NewTaskForm extends Component {
             component={renderField}
             label='Task Description'
           />
-
           <div className='cancelSaveButton'>
             <button
               className='button'
@@ -245,7 +256,7 @@ renderDropdownList.propTypes = {
   meta: PropTypes.object,
   valueField: PropTypes.string,
   textField: PropTypes.string,
-  defaultValue: PropTypes.number
+  defaultValue: PropTypes.object
 }
 
 NewTaskForm.propTypes = {
@@ -255,7 +266,11 @@ NewTaskForm.propTypes = {
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   submitting: PropTypes.bool,
-  addTask: PropTypes.func
+  addTask: PropTypes.func,
+  editTask: PropTypes.func,
+  initialValues: PropTypes.object,
+  initialize: PropTypes.func,
+  editMode: PropTypes.bool
 }
 
 export default reduxForm({
