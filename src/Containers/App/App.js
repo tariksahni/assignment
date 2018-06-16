@@ -21,6 +21,6 @@ App.propTypes = {
   isLoading: PropTypes.bool.isRequired
 }
 
-const mapStateToProps = ({ loader }) => ({ isLoading: !!loader.count }) // samaj
+const mapStateToProps = ({ loader }) => ({ isLoading: !!loader.count })
 
 export default connect(mapStateToProps, null)(App)

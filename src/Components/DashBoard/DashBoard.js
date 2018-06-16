@@ -21,7 +21,7 @@ export default class DashBoard extends Component {
   render () {
     const { todo, doing, done } = this.state.tasks
     return (
-      <div className='dashBoardContainer'>
+      <div className='animated fadeIn dashBoardContainer'>
         <div className='mainTitleContainer'>
           <div className='dashboardheadingContainer'>
             <h1 className='dashboardheading' onClick={this.handleAddButton}>
@@ -30,7 +30,7 @@ export default class DashBoard extends Component {
           </div>
           <Link to='/new-task' className='addNewForm'>Add New Task</Link>
         </div>
-        <div className='listContainer'>
+        <div className='animated shake listContainer'>
           <List data={todo} listHeading={'To Do Tasks'} type={'todo'} />
           <List data={doing} listHeading={'Doing Tasks'} type={'doing'} />
           <List data={done} listHeading={'Done Tasks'} type={'done'} />

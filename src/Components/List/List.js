@@ -22,7 +22,7 @@ export default class List extends Component {
       )
     })
     return (
-      <div className={`listElement ${type}`}>
+      <div className={` animated tada listElement ${type}`}>
         <span className='listHeading'>{listHeading}</span>
         <div className='taskLists'>{taskListNode} </div>
       </div>
